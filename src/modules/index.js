@@ -10,7 +10,7 @@ const typeDefs = mergeTypes(typeArray, { all: true });
 export default {
     resolvers: {
         Query: {
-            ...User.getMyProfile,
+            ...User.getProfile,
         },
     },
     typeDefs,
