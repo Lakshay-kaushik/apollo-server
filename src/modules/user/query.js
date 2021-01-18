@@ -3,7 +3,8 @@ export default {
         return {
             id: 1,
             name: 'Lakshay',
-            email: 'lakshay.kaushik@successive.tech'
+            email: 'lakshay.kaushik@successive.tech',
+            role: 'Trainee'
         }
     }
 } 
