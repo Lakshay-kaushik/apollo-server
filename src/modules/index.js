@@ -1,5 +1,5 @@
-import pkg from 'merge-graphql-schemas';
-const { fileLoader, mergeTypes } = pkg;
+import { fileLoader, mergeTypes } from 'merge-graphql-schemas';
+// const { fileLoader, mergeTypes } = pkg;
 import path from 'path';
 import * as User from './user/index.js';
 
@@ -10,7 +10,7 @@ const typeDefs = mergeTypes(typeArray, { all: true });
 export default {
     resolvers: {
         Query: {
-            ...User.getProfile,
+            ...User.getProfile
         },
     },
     typeDefs,
