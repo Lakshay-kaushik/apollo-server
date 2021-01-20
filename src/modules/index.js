@@ -1,5 +1,5 @@
-import pkg from 'merge-graphql-schemas';
-const { fileLoader, mergeTypes } = pkg;
+import { fileLoader, mergeTypes } from 'merge-graphql-schemas';
+// const { fileLoader, mergeTypes } = pkg;
 import path from 'path';
 import * as User from './user/index.js';
 import * as trainee from './trainee/index.js';

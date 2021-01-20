@@ -1,8 +1,7 @@
 import Express from 'express';
-import pkg from 'apollo-server-express';
+import * as pkg from 'apollo-server-express';
 const { ApolloServer } = pkg;
 class Server {
-app;
 constructor(config) {
 this.config = config;
 this.app = Express();
@@ -27,12 +26,12 @@ return this;
 }
 
 run() {
-const { app } = this;
-app.listen(9001, (err) => {
+const { app,config: { PORT }} = this;
+app.listen(PORT, (err) => {
 if (err) {
 console.log(err);
 }
-console.log(`App is running on port ${9001}`);
+console.log(`App is running on port ${PORT}`);
 });
 return this;
 }
