@@ -1,3 +1,10 @@
+type trainee {
+    _id: ID!
+    name: String!
+    email: String!
+    role: String
+    originalId: ID
+}
 type User {
     id: ID!
     name: String!
@@ -11,8 +18,8 @@ input LoginInput {
 }
 
 input UpdateUser {
-    id: ID!
+    originalID: ID!
     name: String
     email: String
-    role: String
+    password: String
 }
