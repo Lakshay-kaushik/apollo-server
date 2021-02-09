@@ -13,7 +13,7 @@ export default {
     const { dataSources: { userAPI } } = context;
     const { limit, skip } = args;
     const response= await userAPI.me();
-    const count = getTrainee({...limit, ...skip});
+    const count = getTrainee({limit, skip});
     return response.data;
     return count;
   }
