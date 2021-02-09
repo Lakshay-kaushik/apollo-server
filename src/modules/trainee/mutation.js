@@ -1,6 +1,7 @@
 import pubsub from '../pubsub.js';
 import userInstance from '../../service/user.js';
 import constant from '../../libs/constant.js'
+import user from '../../service/user.js';
 
 export default {
   createTrainee: async(parent, args, context) => {
@@ -15,7 +16,7 @@ export default {
     const { User } = args;
     console.log("Inside update function",{dataToUpdate});
     const { dataSources: { traineeAPI } } = context ;
-    const updateRecord = await traineeAPI.updateTrainee({ dataToUpdate });
+    const updateRecord = await traineeAPI.updateTrainee({ dataToUpdate: {...user} });
     pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, { traineeUpdated: updateRecord.data });
     return updateRecord.data;
   },
