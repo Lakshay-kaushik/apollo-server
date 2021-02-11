@@ -14,12 +14,12 @@ export default {
   },
   updateTrainee: async(parent, args, context) => {
     const { User } = args;
-    console.log("Inside update function",{dataToUpdate});
     const { dataSources: { traineeAPI } } = context ;
-    const updateRecord = await traineeAPI.updateTrainee({ dataToUpdate: {...user} });
+    const updateRecord = await traineeAPI.updateTrainee({ ...User });
     pubsub.publish(constant.subscriptions.TRAINEE_UPDATED, { traineeUpdated: updateRecord.data });
     return updateRecord.data;
-  },
+ },
+
   deleteTrainee: async(parent, args, context) => {
     const { id } = args;
     console.log("Inside delete function:", id);

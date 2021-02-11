@@ -1,15 +1,22 @@
+scalar Date
 type trainee {
     _id: ID!
     name: String!
     email: String!
-    role: String
-    originalId: ID
+    role: String!
+    originalId: ID!
+    createdAt: Date!
+}
+
+type TRAINEELIST {
+    count: String
+    records: [trainee]
 }
 type User {
     id: ID!
     name: String!
     email: String!
-    role: String
+    role: String!
 }
 
 input LoginInput {
@@ -18,8 +25,13 @@ input LoginInput {
 }
 
 input UpdateUser {
-    originalID: ID!
+    id: ID!
+    dataToUpdate: dataToUpdateInput!
+}
+
+input dataToUpdateInput{
     name: String
     email: String
     password: String
+    role: String
 }
