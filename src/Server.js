@@ -1,7 +1,7 @@
 import Express from 'express';
 import { createServer } from 'http';
 import * as pkg from 'apollo-server-express';
-import { UserAPI } from './datasource/index.js';
+import { UserAPI, TraineeAPI } from './datasource/index.js';
 const { ApolloServer } = pkg;
 class Server {
   constructor(configurations) {
@@ -27,7 +27,8 @@ class Server {
       ...schema,
       dataSources: () => {
         const userAPI = new UserAPI();
-        return { userAPI };
+        const traineeAPI = new TraineeAPI();
+        return { userAPI, traineeAPI };
       },
       context:({req}) =>{
         if (req) {
